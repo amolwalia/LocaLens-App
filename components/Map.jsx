@@ -1,7 +1,5 @@
 "use client";
 
-// File: components/Map.jsx
-
 import React, { useEffect, useRef } from "react";
 import NavBar from "@/components/NavBar";
 
@@ -28,6 +26,8 @@ export default function Map() {
       mapInstance.current = new window.google.maps.Map(mapRef.current, {
         center: { lat: 49.2827, lng: -123.1207 },
         zoom: 15,
+        mapTypeControl: false,
+        disableDefaultUI: true,
       });
 
       const input = inputRef.current;
@@ -145,8 +145,7 @@ export default function Map() {
         placeholder="Search places..."
         className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10 w-80 px-4 py-2 border border-gray-300 rounded-md shadow-md bg-white"
       />
-      <div ref={mapRef} className="w-full h-full" />
-      <NavBar />
+      <div ref={mapRef} className="w-full h-full" />{" "}
     </div>
   );
 }
