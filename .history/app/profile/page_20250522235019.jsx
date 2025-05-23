@@ -84,9 +84,9 @@ export default function ProfilePage() {
           />
         </div>
         <div className="buttonContainer">
-          <button type="submit" className="saveButton">
-            Save
-          </button>
+        <button type="submit" className="saveButton">
+          Save
+        </button>
         </div>
       </form>
     </div>

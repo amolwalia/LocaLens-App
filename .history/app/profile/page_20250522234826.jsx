@@ -83,11 +83,9 @@ export default function ProfilePage() {
             onChange={handleChange}
           />
         </div>
-        <div className="buttonContainer">
-          <button type="submit" className="saveButton">
-            Save
-          </button>
-        </div>
+        <button type="submit" className="saveButton">
+          Save Changes
+        </button>
       </form>
     </div>
   );

@@ -24,12 +24,6 @@
   margin-bottom: 24px;
 }
 
-.buttonContainer {
-  display: flex;
-  justify-content: center;
-  margin-top: 24px;
-}
-
 .saveButton {
   background-color: #d76a17;
   color: #ffffff;
@@ -40,4 +34,4 @@
   font-weight: 600;
   cursor: auto;
   transition: ease-in-out;
-}
+  
