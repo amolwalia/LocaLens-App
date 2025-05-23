@@ -12,14 +12,8 @@
   }
 }
 
-.profileFormContainer {
+.container {
   max-width: 672px;
   margin: 0 auto;
   padding: 16px;
-}
-
-.profileHeading {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 24px;
 }

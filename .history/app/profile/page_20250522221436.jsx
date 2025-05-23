@@ -15,9 +15,8 @@ const user = {
 
 export default function ProfilePage() {
   return (
-    <div className="profileFormContainer">
+    <div className="profilecontainer">
       <NavBar />
-      <h1 className="profileHeading">Edit Profile</h1>
       <Input
         label="First Name"
         id="firstName"

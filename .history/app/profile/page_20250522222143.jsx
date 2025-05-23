@@ -17,7 +17,7 @@ export default function ProfilePage() {
   return (
     <div className="profileFormContainer">
       <NavBar />
-      <h1 className="profileHeading">Edit Profile</h1>
+      <h1 className="text-2xl font-bold mb-6">Edit Profile</h1>
       <Input
         label="First Name"
         id="firstName"
