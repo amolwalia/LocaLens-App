@@ -20,7 +20,7 @@ export default function MIA() {
         context, or someone who has disappeared from a situation or location.
       </p>
       <Link
-        href="/community"
+        href="/home"
         className="text-xl border text-black py-3 rounded-md w-5/6 mt-4"
       >
         Let's Go Back 😪
