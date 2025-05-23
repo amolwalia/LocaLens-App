@@ -1,37 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+📍 Localens
 
-## Getting Started
+**Localens** is like Yelp, but for photographers.
 
-First, run the development server:
+Whenever you're planning a photo shoot, one of the toughest things is picking locations — especially if you're in a new city. Localens helps you discover and share photo-worthy spots, complete with visuals, geotags, and community input.
+
+---
+
+🚀 Features
+
+* 🗺️ Interactive Google Maps integration
+* 📍 Location-based photo pins
+* 📸 Community media feed
+* ➕ Floating action buttons for posting and navigation
+* 🔎 Search and filter UI
+* 🧭 Sticky headers and responsive layout
+* 💾 Save locations for future access (modal coming soon)
+
+---
+
+🧱 Built With
+
+* [Next.js 13+ (App Router)](https://nextjs.org/)
+* [React](https://reactjs.org/)
+* [Tailwind CSS](https://tailwindcss.com/)
+* [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/overview)
+
+---
+
+🛠️ Getting Started
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/yourusername/localens.git
+cd localens
+```
+
+2. **Install dependencies:**
+
+```bash
+npm install
+```
+
+3. **Run the development server:**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 📁 Folder Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+/app            → App Router pages
+/components     → Reusable UI components
+/public         → Static image assets (map pins, uploads)
+/styles         → Global styles (globals.css)
+/next.config.js → Next.js config
+```
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+### 🤝 License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# LocaLens-app
+This project is for educational use. If you want to deploy or extend it commercially, feel free to fork and customize!
