@@ -37,12 +37,7 @@ export default function SignUpPage() {
           className="w-full px-4 py-2 border border-gray-400 rounded-md mb-4"
         />
 
-<Input
-  label="Last Name"
-  id="lastName"
-  type="text"
-/>
-
+x
 
         <label className="text-sm text-black mb-1" htmlFor="email">
           Email

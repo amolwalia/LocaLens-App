@@ -4,7 +4,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Input from "@/components/Input/Input"
 
 export default function SignUpPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -37,11 +36,7 @@ export default function SignUpPage() {
           className="w-full px-4 py-2 border border-gray-400 rounded-md mb-4"
         />
 
-<Input
-  label="Last Name"
-  id="lastName"
-  type="text"
-/>
+
 
 
         <label className="text-sm text-black mb-1" htmlFor="email">

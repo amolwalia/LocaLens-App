@@ -38,10 +38,7 @@ export default function SignUpPage() {
         />
 
 <Input
-  label="Last Name"
-  id="lastName"
-  type="text"
-/>
+
 
 
         <label className="text-sm text-black mb-1" htmlFor="email">
