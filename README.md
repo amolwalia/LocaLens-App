@@ -48,6 +48,9 @@ npm install
 npm run dev
 ```
 
+For Best Experience while running the app -
+Inspect > Device ToolBar > Dimensions > Samsung Galaxy S20 Ultra
+
 ---
 
 ### 📁 Folder Structure
