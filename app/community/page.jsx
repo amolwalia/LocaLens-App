@@ -173,7 +173,7 @@ export default function CommunityPage() {
       </div>
 
       {/* Floating FAB */}
-      <Link href="/post">
+      <Link href="/new-post">
         <button className="fixed bottom-24 right-4 z-50 bg-[#D76A17] text-white w-16 h-16 rounded-full shadow-lg text-3xl flex items-center justify-center">
           +
         </button>
