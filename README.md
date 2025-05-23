@@ -48,6 +48,9 @@ npm install
 npm run dev
 ```
 
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+(Bug Fix - If the current Location isn't display on load, refresh the page once.)
+
 For Best Experience while running the app -
 Inspect > Device ToolBar > Dimensions > Samsung Galaxy S20 Ultra
 
