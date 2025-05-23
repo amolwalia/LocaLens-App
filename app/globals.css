@@ -12,3 +12,33 @@
     font-family: "Noto Sans", sans-serif;
   }
 }
+
+.profileFormContainer {
+  max-width: 672px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.profileHeading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.saveButton {
+  background-color: #d76a17;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: auto;
+  transition: ease-in-out;
+}
