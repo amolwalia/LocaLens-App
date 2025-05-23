@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import { usestate } from "react";
+
 import NavBar from "@/components/NavBar";
 import Input from "@/components/Input/Input";
 
@@ -16,19 +17,19 @@ export default function ProfilePage() {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setFormData((prev) => ({ prev, [id]: value }));
+    setFormData((prev) => ({prev, [id]: value }));
   };
 
   return (
-    <div className="profileFormContainer">
+    <div className="max-w-2xl mx-auto p-4">
       <NavBar />
-      <h1 className="profileHeading">Edit Profile</h1>
+      <h1 className="text-2xl font-bold mb-6">Edit Profile</h1>
       <Input
         label="First Name"
         id="firstName"
         type="text"
         value={formData.firstName}
-        onChange={handleChange}
+        onchange={handleChange}
         placeholder="Enter first name"
       />
       <Input
@@ -37,7 +38,7 @@ export default function ProfilePage() {
         type="text"
         value={formData.lastName}
         onChange={handleChange}
-        placeholder="Enter last name"
+        placeholder="Enter Last Name"
       />
       <Input
         label="Username"
@@ -52,8 +53,7 @@ export default function ProfilePage() {
         id="pronouns"
         type="text"
         value={formData.pronouns}
-        onChange={handleChange}
-        placeholder="Enter pronouns"
+        onchange={handleChange}
       />
       <Input
         label="Bio"
@@ -63,14 +63,7 @@ export default function ProfilePage() {
         onChange={handleChange}
         placeholder="150 character limit"
       />
-      <Input
-        label="Links"
-        id="links"
-        type="text"
-        value={formData.links}
-        onChange={handleChange}
-        placeholder="Website or social media"
-      />
+      <Input label="Links" id="links" type="text" onChange={handleChange} />
     </div>
   );
 }

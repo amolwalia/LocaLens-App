@@ -5,7 +5,7 @@ import NavBar from "@/components/NavBar";
 import Input from "@/components/Input/Input";
 
 export default function ProfilePage() {
-  const [formData, setFormData] = usestate({
+  const [formData, setFormData] = useState({
     firstName: "Samuel L.",
     lastName: "Jackson",
     username: "@jackson.jpeg",

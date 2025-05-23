@@ -16,7 +16,7 @@ export default function ProfilePage() {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setFormData((prev) => ({ prev, [id]: value }));
+    setFormData((prev) => ({prev, [id]: value }));
   };
 
   return (
