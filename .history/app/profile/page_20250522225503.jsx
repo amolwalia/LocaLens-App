@@ -5,7 +5,7 @@ import NavBar from "@/components/NavBar";
 import Input from "@/components/Input/Input";
 
 export default function ProfilePage() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = usetate({
     firstName: "Samuel L.",
     lastName: "Jackson",
     username: "@jackson.jpeg",
@@ -16,7 +16,7 @@ export default function ProfilePage() {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setFormData((prev) => ({ ...prev, [id]: value }));
+    setFormData((prev) => ({prev, [id]: value }));
   };
 
   return (
