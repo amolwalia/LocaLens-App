@@ -11,31 +11,31 @@ export default function ProfilePage() {
     username: "@jackson.jpeg",
     pronouns: "He/Him",
     bio: "I take pictures because I like to. Follow me and my journey",
-    links: "https://shorturl.at/xvcix",
+    links: "https://shorturl.at/xvcix"
   });
 
-  const handleChange = (event) => {
-    const { id, value } = event.target;
+  const handleChange = (e) => {
+    const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      alert("Profile saved successfully!");
-    } catch (error) {
-      console.error("Error saving profile:", error);
-      alert("Failed to save profile");
-    }
-  };
+  _const handleSubmit = async (e) => {_
+    _e.preventDefault();_
+    _try {_
+      _await new Promise((resolve) => setTimeout(resolve, 1000));_
+      _alert("Profile saved successfully!");_
+    _} catch (error) {_
+      _console.error("Error saving profile:", error);_
+      _alert("Failed to save profile");_
+    _}_
+  _};_
 
   return (
-    <div className="profileFormContainer">
+    <div className="max-w-2xl mx-auto p-4">
       <NavBar />
-      <h1 className="profileHeading">Edit Profile</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="inputSpaces">
+      <h1 className="text-2xl font-bold mb-6">Edit Profile</h1>
+      _<form onSubmit={handleSubmit}>_
+        _<div className="space-y-4">_
           <Input
             label="First Name"
             id="firstName"
@@ -82,8 +82,8 @@ export default function ProfilePage() {
             value={formData.links}
             onChange={handleChange}
           />
-        </div>
-      </form>
+        _</div>_
+      _</form>_
     </div>
   );
 }

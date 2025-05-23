@@ -11,16 +11,16 @@ export default function ProfilePage() {
     username: "@jackson.jpeg",
     pronouns: "He/Him",
     bio: "I take pictures because I like to. Follow me and my journey",
-    links: "https://shorturl.at/xvcix",
+    links: "https://shorturl.at/xvcix"
   });
 
-  const handleChange = (event) => {
-    const { id, value } = event.target;
+  const handleChange = (e) => {
+    const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       alert("Profile saved successfully!");
@@ -31,11 +31,11 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="profileFormContainer">
+    <div className="max-w-2xl mx-auto p-4">
       <NavBar />
-      <h1 className="profileHeading">Edit Profile</h1>
+      <h1 className="text-2xl font-bold mb-6">Edit Profile</h1>
       <form onSubmit={handleSubmit}>
-        <div className="inputSpaces">
+        <div className="space-y-4">
           <Input
             label="First Name"
             id="firstName"

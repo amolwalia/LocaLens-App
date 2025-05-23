@@ -31,9 +31,9 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="profileFormContainer">
+    <div className="profileContainer">
       <NavBar />
-      <h1 className="profileHeading">Edit Profile</h1>
+      <h1 className="profileHeadingTitle">Edit Profile</h1>
       <form onSubmit={handleSubmit}>
         <div className="inputSpaces">
           <Input

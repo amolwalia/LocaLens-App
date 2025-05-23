@@ -14,13 +14,13 @@ export default function ProfilePage() {
     links: "https://shorturl.at/xvcix",
   });
 
-  const handleChange = (event) => {
-    const { id, value } = event.target;
+  const handleChange = (e) => {
+    const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       alert("Profile saved successfully!");
@@ -35,7 +35,7 @@ export default function ProfilePage() {
       <NavBar />
       <h1 className="profileHeading">Edit Profile</h1>
       <form onSubmit={handleSubmit}>
-        <div className="inputSpaces">
+        <div className="space-y-4">
           <Input
             label="First Name"
             id="firstName"
