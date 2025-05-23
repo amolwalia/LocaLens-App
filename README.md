@@ -8,22 +8,22 @@ Whenever you're planning a photo shoot, one of the toughest things is picking lo
 
 🚀 Features
 
-* 🗺️ Interactive Google Maps integration
-* 📍 Location-based photo pins
-* 📸 Community media feed
-* ➕ Floating action buttons for posting and navigation
-* 🔎 Search and filter UI
-* 🧭 Sticky headers and responsive layout
-* 💾 Save locations for future access (modal coming soon)
+- 🗺️ Interactive Google Maps integration
+- 📍 Location-based photo pins
+- 📸 Community media feed
+- ➕ Floating action buttons for posting and navigation
+- 🔎 Search and filter UI
+- 🧭 Sticky headers and responsive layout
+- 💾 Save locations for future access (modal coming soon)
 
 ---
 
 🧱 Built With
 
-* [Next.js 13+ (App Router)](https://nextjs.org/)
-* [React](https://reactjs.org/)
-* [Tailwind CSS](https://tailwindcss.com/)
-* [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/overview)
+- [Next.js 13+ (App Router)](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/overview)
 
 ---
 
@@ -59,7 +59,6 @@ npm run dev
 /styles         → Global styles (globals.css)
 /next.config.js → Next.js config
 ```
-
 
 ### 🤝 License
 
