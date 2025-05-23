@@ -1,19 +1,38 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import NavBar from "@/components/NavBar";
+import React, {
+  useEffect,
+  useRef,
+  forwardRef,
+  useImperativeHandle,
+  useState,
+} from "react";
 
-export default function Map() {
+const Map = forwardRef((props, ref) => {
   const mapRef = useRef(null);
   const mapInstance = useRef(null);
   const userMarker = useRef(null);
+  const currentPosition = useRef(null);
   const inputRef = useRef(null);
+  const selectedMarker = useRef(null);
+
+  const [searchActive, setSearchActive] = useState(false);
+
+  useImperativeHandle(ref, () => ({
+    setCenterToUserLocation: () => {
+      if (mapInstance.current && currentPosition.current) {
+        mapInstance.current.setCenter(currentPosition.current);
+        mapInstance.current.setZoom(15);
+      }
+    },
+  }));
 
   useEffect(() => {
     const loadGoogleMaps = async () => {
       if (!window.google) {
         const script = document.createElement("script");
-        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCDZVgWayOKwBrm9K9kFgWEaEb3Yi0QxAQ&libraries=places`;
+        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCDZVgWayOKwBrm9K9kFgWEaEb3Yi0QxAQ&libraries=places
+`;
         script.async = true;
         script.onload = initMap;
         document.body.appendChild(script);
@@ -30,64 +49,30 @@ export default function Map() {
         disableDefaultUI: true,
       });
 
-      const input = inputRef.current;
-      const autocomplete = new window.google.maps.places.Autocomplete(input);
+      const autocomplete = new window.google.maps.places.Autocomplete(
+        inputRef.current
+      );
       autocomplete.bindTo("bounds", mapInstance.current);
 
       autocomplete.addListener("place_changed", () => {
         const place = autocomplete.getPlace();
         if (!place.geometry || !place.geometry.location) return;
-        mapInstance.current.setCenter(place.geometry.location);
-        mapInstance.current.setZoom(15);
 
-        new window.google.maps.Marker({
+        // Remove existing marker if any
+        if (selectedMarker.current) {
+          selectedMarker.current.setMap(null);
+        }
+
+        // Add new marker
+        selectedMarker.current = new window.google.maps.Marker({
           position: place.geometry.location,
           map: mapInstance.current,
           title: place.name,
         });
-      });
 
-      const posts = [
-        {
-          lat: 49.2809,
-          lng: -123.1171,
-          title: "Cool graffiti alley",
-          image: "/sample1.jpg",
-        },
-        {
-          lat: 49.2843,
-          lng: -123.1124,
-          title: "Sunset view point",
-          image: "/sample2.jpg",
-        },
-        {
-          lat: 49.2796,
-          lng: -123.1235,
-          title: "Local café corner",
-          image: "/sample3.jpg",
-        },
-      ];
-
-      const infoWindow = new window.google.maps.InfoWindow();
-
-      posts.forEach((post) => {
-        const marker = new window.google.maps.Marker({
-          position: { lat: post.lat, lng: post.lng },
-          map: mapInstance.current,
-          icon: {
-            url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
-          },
-        });
-
-        marker.addListener("click", () => {
-          const content = `
-            <div style='max-width: 200px;'>
-              <img src="${post.image}" alt="${post.title}" style="width: 100%; border-radius: 8px; margin-bottom: 6px;" />
-              <div class='text-sm'>${post.title}</div>
-            </div>`;
-          infoWindow.setContent(content);
-          infoWindow.open(mapInstance.current, marker);
-        });
+        mapInstance.current.setCenter(place.geometry.location);
+        mapInstance.current.setZoom(15);
+        setSearchActive(true);
       });
 
       if (navigator.geolocation) {
@@ -98,16 +83,13 @@ export default function Map() {
               lng: position.coords.longitude,
             };
 
-            if (!userMarker.current) {
-              mapInstance.current.setCenter(userLocation);
-            }
+            currentPosition.current = userLocation;
 
-            if (userMarker.current) {
-              userMarker.current.setPosition(userLocation);
-            } else {
+            if (!userMarker.current) {
               userMarker.current = new window.google.maps.Marker({
                 position: userLocation,
                 map: mapInstance.current,
+                title: "You are here",
                 icon: {
                   path: window.google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
                   scale: 5,
@@ -115,21 +97,16 @@ export default function Map() {
                   fillOpacity: 1,
                   strokeColor: "#ffffff",
                   strokeWeight: 2,
-                  rotation: 0,
                   anchor: new window.google.maps.Point(0, 2),
                 },
-                title: "You are here",
               });
+              mapInstance.current.setCenter(userLocation);
+            } else {
+              userMarker.current.setPosition(userLocation);
             }
           },
-          (error) => {
-            console.warn("Geolocation error:", error);
-          },
-          {
-            enableHighAccuracy: true,
-            maximumAge: 0,
-            timeout: 5000,
-          }
+          (error) => console.warn("Geolocation error:", error),
+          { enableHighAccuracy: true }
         );
       }
     };
@@ -137,15 +114,42 @@ export default function Map() {
     loadGoogleMaps();
   }, []);
 
+  const handleClearSearch = () => {
+    inputRef.current.value = "";
+    setSearchActive(false);
+    if (selectedMarker.current) {
+      selectedMarker.current.setMap(null);
+      selectedMarker.current = null;
+    }
+  };
+
   return (
     <div className="relative w-full h-screen">
-      <input
-        ref={inputRef}
-        type="text"
-        placeholder="Search places..."
-        className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10 w-80 px-4 py-2 border border-gray-300 rounded-md shadow-md bg-white"
-      />
-      <div ref={mapRef} className="w-full h-full" />{" "}
+      {/* Search Input */}
+      <div className="fixed top-4 left-0 right-0 z-50 px-5">
+        <div className="relative w-full">
+          <input
+            ref={inputRef}
+            type="text"
+            placeholder="Search places..."
+            className="w-full px-4 py-2 border-[2px] border-black rounded-md shadow bg-white pr-10"
+          />
+          {searchActive && (
+            <button
+              onClick={handleClearSearch}
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-lg"
+              title="Clear search"
+            >
+              ✕
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Google Map */}
+      <div ref={mapRef} className="w-full h-full z-0" />
     </div>
   );
-}
+});
+
+export default Map;

@@ -36,9 +36,11 @@ export default function SignInPage() {
           </Link>
         </div>
 
-        <button className="w-full bg-[#D76A17] text-white py-3 rounded-md mb-6">
-          Sign In
-        </button>
+        <Link href="/home">
+          <button className="bg-[#D76A17] text-white py-3 rounded-md w-full mb-4">
+            Log In
+          </button>
+        </Link>
 
         <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
           <div className="flex-grow h-px bg-gray-300" />
@@ -51,10 +53,10 @@ export default function SignInPage() {
             <span className="text-xl"></span>
           </button>
           <button className="w-10 h-10 rounded-full border border-black flex items-center justify-center">
-            <img src="/google.svg" alt="Google" className="w-5 h-5" />
+            <img src="/googi.png" alt="Google" />
           </button>
           <button className="w-10 h-10 rounded-full border border-black flex items-center justify-center">
-            <img src="/facebook.svg" alt="Facebook" className="w-5 h-5" />
+            <img src="/fb.png" alt="Facebook" />
           </button>
         </div>
 

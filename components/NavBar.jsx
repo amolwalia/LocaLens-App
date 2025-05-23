@@ -5,9 +5,9 @@ import Link from "next/link";
 
 export default function NavBar() {
   return (
-    <nav className="fixed bottom-[0] left-[0] w-full z-50 bg-[#202229] text-white flex justify-around items-center h-16 shadow-md">
+    <nav className="fixed bottom-[0] left-[0] w-full z-50 bg-[#202229] opacity-80 text-white flex justify-around items-center h-16 shadow-md">
       <Link
-        href="/home"
+        href="/community"
         className="flex flex-col items-center text-sm text-gray-700"
       >
         <span className="text-xl">
@@ -26,7 +26,7 @@ export default function NavBar() {
         </span>
       </Link>
       <Link
-        href="/post"
+        href="/home"
         className="flex flex-col items-center text-sm text-gray-700"
       >
         <span className="text-xl">
